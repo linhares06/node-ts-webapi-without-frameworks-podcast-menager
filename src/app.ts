@@ -3,6 +3,8 @@ import * as http from "http";
 import {
   getListEpisodes,
   getFilterEpisodes,
+  addEpisodeRating,
+  addEpisodeComment
 } from "./controllers/podscasts-controller";
 
 import { Routes } from "./routes/routes";
@@ -20,5 +22,13 @@ export const app = async (
 
   if (request.method === HttpMethod.GET && baseUrl === Routes.ESPISODE) {
     await getFilterEpisodes(request, response);
+  }
+
+  if (request.method === HttpMethod.POST && baseUrl === Routes.RATING) {
+    await addEpisodeRating(request, response);
+  }
+
+  if (request.method === HttpMethod.POST && baseUrl === Routes.COMMENT) {
+    await addEpisodeComment(request, response);
   }
 };

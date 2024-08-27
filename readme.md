@@ -8,12 +8,13 @@ O Podcast Manager é uma aplicação inspirada no estilo da Netflix, que permite
 
 - **Listar os episódios de podcasts em sessões de categorias:** Os episódios são organizados em categorias como saúde, bodybuilder, mentalidade e humor, permitindo aos usuários explorar facilmente os conteúdos disponíveis.
 - **Filtrar episódios por nome de podcast:** Os usuários podem realizar buscas específicas por nome de podcast, facilitando o acesso aos episódios desejados.
+- **Adicionar avaliações e comentários:** Os usuários podem adicionar avaliações (ratings) e comentários aos episódios de podcasts, promovendo interação e compartilhamento de opiniões.
 
 ## Implementação
 
 ### Listar os episódios de podcasts em sessões de categorias
 
-- **Endpoint:** `GET /list`
+- **Endpoint:** `GET /api/list`
 - **Descrição:** Retorna uma lista de episódios de podcasts organizados por categorias.
 - **Exemplo de resposta:**
 
@@ -40,9 +41,22 @@ O Podcast Manager é uma aplicação inspirada no estilo da Netflix, que permite
 
 ### Filtrar episódios por nome de podcast
 
-- **Endpoint:** `GET /episode?podcastName={nome}`
+- **Endpoint:** `GET /api/podcasts?p={nome}`
 - **Descrição:** Retorna uma lista de episódios de podcast com base no nome do podcast fornecido.
-- **Exemplo de requisição:** `GET /episode?podcastName=flow`
+- **Exemplo de requisição:** `GET api/podcasts?p=flow`
+
+### Adicionar Avaliação ao episódio
+
+- **Endpoint:** `POST /api/rating?v={videoId}&r={rating}`
+- **Descrição:** Retorna o podcast com a avaliação.
+- **Exemplo de requisição:** `POST api/rating?v=00001&r=5`
+
+### Adicionar Comentário ao episódio
+
+- **Endpoint:** `POST /api/comment?v={videoId}&u={username}&c={comment}`
+- **Descrição:** Retorna o podcast com o comentário.
+- **Exemplo de requisição:** `POST /comment?v=00001&u=user&c=muito bom`
+
 
 ## Tecnologias Utilizadas
 
